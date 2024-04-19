@@ -1,18 +1,28 @@
 {
-  "name": "dreamit-challange",
+  "name": "dreamtit-challange",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite\"",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite preview\""
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "@apollo/client": "^3.9.11",
+    "@vue/apollo-composable": "^4.0.2",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "local-cors-proxy": "^1.1.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vue-tsc": "^2.0.6"
