@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite\"",
+    "dev": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite --port 5173\"",
     "build": "vue-tsc && vite build",
-    "preview": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite preview\""
+    "preview": "concurrently -r \"lcp --proxyUrl https://www.lottohelden.de\" \"vite preview --port 4173\"",
+    "test": "npm run build && playwright test"
   },
   "dependencies": {
     "@apollo/client": "^3.9.11",
@@ -17,6 +18,8 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.43.1",
+    "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
